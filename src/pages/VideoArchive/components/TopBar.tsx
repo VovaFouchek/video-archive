@@ -11,7 +11,7 @@ import Filter from "./Filter";
 
 interface TopBarProps {
   videosAmount: number;
-  selectedVideosAmount: number;
+  selectedIdVideosAmount: number;
   isAllSelected: boolean;
   setViewMode: (mode: TViewMode) => void;
   handleToggleSelectAll: () => void;
@@ -20,7 +20,7 @@ interface TopBarProps {
 
 const TopBar = ({
   videosAmount,
-  selectedVideosAmount,
+  selectedIdVideosAmount,
   setViewMode,
   isAllSelected,
   handleToggleSelectAll,
@@ -43,10 +43,10 @@ const TopBar = ({
     >
       <ActionButtons
         videosAmount={videosAmount}
-        selectedVideosAmount={selectedVideosAmount}
+        selectedIdVideosAmount={selectedIdVideosAmount}
         isAllSelected={isAllSelected}
         onSelectAll={() => handleToggleSelectAll()}
-        onDownload={() => selectedVideosAmount > 0 && showInfoMessage()}
+        onDownload={() => selectedIdVideosAmount > 0 && showInfoMessage()}
         onDelete={() => handleDeleteVideos()}
       />
       <Flex gap={20}>

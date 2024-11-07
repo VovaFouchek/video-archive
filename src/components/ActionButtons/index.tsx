@@ -9,7 +9,7 @@ import {
 
 interface ActionButtonsProps {
   videosAmount: number;
-  selectedVideosAmount: number;
+  selectedIdVideosAmount: number;
   isAllSelected: boolean;
   onSelectAll: () => void;
   onDownload: () => void;
@@ -18,13 +18,14 @@ interface ActionButtonsProps {
 
 const ActionButtons = ({
   videosAmount,
-  selectedVideosAmount,
+  selectedIdVideosAmount,
   isAllSelected,
   onSelectAll,
   onDownload,
   onDelete,
 }: ActionButtonsProps) => {
-  const shouldDisableActions = videosAmount === 0 || selectedVideosAmount === 0;
+  const shouldDisableActions =
+    videosAmount === 0 || selectedIdVideosAmount === 0;
 
   return (
     <Flex gap={10}>

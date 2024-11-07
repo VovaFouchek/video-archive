@@ -51,14 +51,14 @@ const columns: ColumnsType<IVideo> = [
 
 interface TableViewProps {
   videos: IVideo[];
-  selectedVideos: string[];
+  selectedIdVideos: string[];
   handleSelectVideo: (id: string) => void;
   handleToggleSelectAll: () => void;
 }
 
 const TableView = ({
   videos,
-  selectedVideos,
+  selectedIdVideos,
   handleSelectVideo,
   handleToggleSelectAll,
 }: TableViewProps) => {
@@ -76,7 +76,7 @@ const TableView = ({
       <Table<IVideo>
         columns={columns}
         dataSource={videos}
-        rowSelection={{ ...rowSelection, selectedRowKeys: selectedVideos }}
+        rowSelection={{ ...rowSelection, selectedRowKeys: selectedIdVideos }}
         pagination={{
           position: ["bottomCenter"],
           defaultPageSize: 5,

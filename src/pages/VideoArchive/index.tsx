@@ -10,17 +10,25 @@ import { ViewMode } from "@/shared/constants";
 import { TViewMode, IVideo } from "@/shared/types";
 import useMessage from "@/hooks/useMessage";
 import useModal from "@/hooks/useModal";
+import useSelection from "@/hooks/useSelection";
 
 import "./videoArchive.scss";
 
 const VideoArchive = () => {
   const [viewMode, setViewMode] = useState<TViewMode>(ViewMode.TABLE);
-  const [selectedVideos, setSelectedVideos] = useState<string[]>([]); //! video ids
   const [videos, setVideos] = useState<IVideo[]>(mockVideo);
 
+  const {
+    selectedIdVideos,
+    isAllSelected,
+    handleSelectVideo,
+    handleToggleSelectAll,
+    clearSelection,
+  } = useSelection(videos);
+
   const confirmDeleteVideos = () => {
-    setVideos(videos.filter((video) => !selectedVideos.includes(video.id)));
-    setSelectedVideos([]);
+    setVideos(videos.filter((video) => !selectedIdVideos.includes(video.id)));
+    clearSelection();
   };
 
   const { handleShowModal } = useModal({
@@ -35,29 +43,8 @@ const VideoArchive = () => {
     content: "Please select at least one video to delete",
   });
 
-  const isAllSelected =
-    videos.length > 0 && selectedVideos.length === videos.length;
-
-  const handleSelectVideo = (id: string) => {
-    if (selectedVideos.includes(id)) {
-      setSelectedVideos(
-        selectedVideos.filter((videoId: string) => videoId !== id)
-      );
-    } else {
-      setSelectedVideos([...selectedVideos, id]);
-    }
-  };
-
-  const handleToggleSelectAll = () => {
-    if (isAllSelected) {
-      setSelectedVideos([]);
-    } else {
-      setSelectedVideos(videos.map((video) => video.id));
-    }
-  };
-
   const handleDeleteVideos = () => {
-    if (selectedVideos.length > 0) {
+    if (selectedIdVideos.length > 0) {
       handleShowModal();
     } else {
       showInfoMessage();
@@ -72,7 +59,7 @@ const VideoArchive = () => {
 
       <TopBar
         videosAmount={videos.length}
-        selectedVideosAmount={selectedVideos.length}
+        selectedIdVideosAmount={selectedIdVideos.length}
         setViewMode={setViewMode}
         isAllSelected={isAllSelected}
         handleToggleSelectAll={handleToggleSelectAll}
@@ -83,13 +70,13 @@ const VideoArchive = () => {
         viewMode === ViewMode.TILE ? (
           <TileView
             videos={videos}
-            selectedVideos={selectedVideos}
+            selectedIdVideos={selectedIdVideos}
             handleSelectVideo={handleSelectVideo}
           />
         ) : (
           <TableView
             videos={videos}
-            selectedVideos={selectedVideos}
+            selectedIdVideos={selectedIdVideos}
             handleSelectVideo={handleSelectVideo}
             handleToggleSelectAll={handleToggleSelectAll}
           />

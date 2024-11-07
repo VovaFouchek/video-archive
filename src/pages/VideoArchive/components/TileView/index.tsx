@@ -8,7 +8,7 @@ import "./tileView.scss";
 
 interface TileViewProps {
   videos: IVideo[];
-  selectedVideos: string[];
+  selectedIdVideos: string[];
   handleSelectVideo: (id: string) => void;
   onEdit?: (id: string) => void;
 }
@@ -17,7 +17,7 @@ const fallbackImage = "/src/assets/videoCamera.svg";
 
 const TileView = ({
   videos,
-  selectedVideos,
+  selectedIdVideos,
   handleSelectVideo,
 }: TileViewProps) => {
   return (
@@ -27,7 +27,7 @@ const TileView = ({
           <div className="tile__top">
             <Checkbox
               id={video.id}
-              checked={selectedVideos.includes(video.id)}
+              checked={selectedIdVideos.includes(video.id)}
               onChange={() => handleSelectVideo(video.id)}
               style={{ background: "#fff" }}
             />
