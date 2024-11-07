@@ -83,6 +83,7 @@ const TableView = ({
         }}
         rowKey="id"
         size="small"
+        scroll={{ x: "max-content" }}
       />
     </div>
   );

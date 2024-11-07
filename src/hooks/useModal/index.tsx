@@ -1,8 +1,8 @@
 import { useNotification } from "@/config/context/NotificationContext";
 
 interface useModalProps {
-  title?: string;
-  content?: string;
+  title: string;
+  content: string;
   handleConfirmed: () => void;
 }
 

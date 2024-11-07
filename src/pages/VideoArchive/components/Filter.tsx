@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { ChangeEvent, CSSProperties } from "react";
 
 import { FilterOutlined, SearchOutlined } from "@ant-design/icons";
 import Button from "antd/es/button";
@@ -19,7 +19,7 @@ const popOverStyles: CSSProperties = {
 
 interface FilterProps {
   applyFilters: (filters: Filters) => void;
-  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Filter = ({ applyFilters, handleSearchChange }: FilterProps) => {
