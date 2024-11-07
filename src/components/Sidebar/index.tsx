@@ -27,7 +27,7 @@ const items: MenuItem[] = [
         label: "Add Video",
       },
       {
-        key: ROUTERS.VIDEO_ARCHIVE,
+        key: ROUTERS.BASE,
         label: "Video Archive",
       },
     ],
