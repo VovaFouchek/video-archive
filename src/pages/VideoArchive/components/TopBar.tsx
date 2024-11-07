@@ -5,7 +5,7 @@ import Button from "antd/es/button";
 import ActionButtons from "@/components/ActionButtons";
 import { ViewMode } from "@/shared/constants";
 import useMessage from "@/hooks/useMessage";
-import { TViewMode } from "@/shared/types";
+import { Filters, TViewMode } from "@/shared/types";
 
 import Filter from "./Filter";
 
@@ -16,6 +16,8 @@ interface TopBarProps {
   setViewMode: (mode: TViewMode) => void;
   handleToggleSelectAll: () => void;
   handleDeleteVideos: () => void;
+  applyFilters: (filters: Filters) => void;
+  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TopBar = ({
@@ -25,6 +27,8 @@ const TopBar = ({
   isAllSelected,
   handleToggleSelectAll,
   handleDeleteVideos,
+  applyFilters,
+  handleSearchChange,
 }: TopBarProps) => {
   const handleTileViewMode = () => setViewMode(ViewMode.TILE);
   const handleTableViewMode = () => setViewMode(ViewMode.TABLE);
@@ -50,7 +54,10 @@ const TopBar = ({
         onDelete={() => handleDeleteVideos()}
       />
       <Flex gap={20}>
-        <Filter />
+        <Filter
+          applyFilters={applyFilters}
+          handleSearchChange={handleSearchChange}
+        />
         <div>
           <Button
             type="text"

@@ -18,3 +18,9 @@ export interface IVideo {
 }
 
 export type NotificationType = "success" | "error" | "warning" | "info";
+
+export interface Filters {
+  videoType: VideoType | null;
+  group: string;
+  dateRange: [string | null, string | null];
+}
