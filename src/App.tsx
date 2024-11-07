@@ -26,6 +26,7 @@ function App() {
       >
         <Route
           index
+          path={ROUTERS.VIDEO_ARCHIVE}
           element={
             <Suspense fallback={<Loader />}>
               <VideoArchive />
