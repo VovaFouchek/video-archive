@@ -18,7 +18,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
-        path={ROUTERS.VIDEO_ARCHIVE}
+        path={ROUTERS.BASE}
         element={<MainLayout />}
         errorElement={
           <ErrorBoundary fallback={<div>Something went wrong</div>} />
