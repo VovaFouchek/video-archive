@@ -53,7 +53,7 @@ const TopBar = ({
         onDownload={() => selectedIdVideosAmount > 0 && showInfoMessage()}
         onDelete={() => handleDeleteVideos()}
       />
-      <Flex gap={20}>
+      <Flex gap={20} wrap>
         <Filter
           applyFilters={applyFilters}
           handleSearchChange={handleSearchChange}

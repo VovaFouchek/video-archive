@@ -1,6 +1,6 @@
 import Table, { ColumnsType, TableProps } from "antd/es/table";
 
-import { dateSorter, stringSorter } from "@/shared/helpers/sorting";
+import { dateSorter, formatDate, stringSorter } from "@/shared/helpers/sorting";
 import { IVideo } from "@/shared/types";
 
 type TableRowSelection<T extends object = object> =
@@ -29,6 +29,7 @@ const columns: ColumnsType<IVideo> = [
     align: "center",
     sorter: (videoA, videoB) =>
       dateSorter(videoA.uploadedDate, videoB.uploadedDate),
+    render: (uploadedDate: string) => formatDate(uploadedDate),
   },
   {
     title: "Last updated",
@@ -38,6 +39,7 @@ const columns: ColumnsType<IVideo> = [
     align: "center",
     sorter: (videoA, videoB) =>
       dateSorter(videoA.uploadedDate, videoB.uploadedDate),
+    render: (lastUpdated: string) => formatDate(lastUpdated),
   },
   {
     title: "Uploaded by",

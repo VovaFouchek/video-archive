@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import Typography from "antd/es/typography";
 
@@ -11,7 +11,7 @@ import { TViewMode, IVideo } from "@/shared/types";
 import useMessage from "@/hooks/useMessage";
 import useModal from "@/hooks/useModal";
 import useSelection from "@/hooks/useSelection";
-import useFilters from "@/hooks/useFilters";
+import { useFilters } from "@/hooks/useFilters";
 
 import "./videoArchive.scss";
 
@@ -47,13 +47,13 @@ const VideoArchive = () => {
     content: "Please select at least one video to delete",
   });
 
-  const handleDeleteVideos = useCallback(() => {
+  const handleDeleteVideos = () => {
     if (selectedIdVideos.length > 0) {
       handleShowModal();
     } else {
       showInfoMessage();
     }
-  }, []);
+  };
 
   return (
     <>

@@ -27,7 +27,6 @@ const items: MenuItem[] = [
         label: "Add Video",
       },
       {
-        // key: ROUTERS.VIDEO_ARCHIVE,
         key: ROUTERS.BASE,
         label: "Video Archive",
       },
@@ -59,7 +58,7 @@ const Sidebar = () => {
         onClick={handleClick}
         defaultSelectedKeys={["video-archive"]}
         defaultOpenKeys={["video", "analytics"]}
-        style={{ width: 280 }}
+        style={{ flex: "auto", minWidth: 0 }}
       />
       <ProfileCard
         name="Lady Bug"

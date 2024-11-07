@@ -24,7 +24,7 @@ interface FilterProps {
 
 const Filter = ({ applyFilters, handleSearchChange }: FilterProps) => {
   return (
-    <Flex gap={10}>
+    <Flex gap={10} wrap>
       <Input
         id="search"
         placeholder="Search videos..."

@@ -1,13 +1,17 @@
 import { Filters, IVideo } from "@/shared/types";
+import { useDebounce } from "use-debounce";
 import { useMemo, useState, useCallback } from "react";
 
-const useFilters = (videos: IVideo[]) => {
+const DEBOUNCE_DELAY = 400;
+
+export const useFilters = (videos: IVideo[]) => {
   const [filters, setFilters] = useState<Filters>({
     videoType: null,
     group: "",
     dateRange: [null, null],
   });
-  const [search, setSearch] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [deferredQuery] = useDebounce(searchQuery, DEBOUNCE_DELAY);
 
   const applyFilters = useCallback((filters: Filters) => {
     setFilters(filters);
@@ -15,14 +19,17 @@ const useFilters = (videos: IVideo[]) => {
 
   const handleSearchChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSearch(event.target.value);
+      setSearchQuery(event.target.value);
     },
     []
   );
 
   const filteredVideos = useMemo(() => {
     return videos.filter((video) => {
-      if (search && !video.title.toLowerCase().includes(search.toLowerCase())) {
+      if (
+        deferredQuery &&
+        !video.title.toLowerCase().includes(deferredQuery.toLowerCase())
+      ) {
         return false;
       }
 
@@ -44,9 +51,7 @@ const useFilters = (videos: IVideo[]) => {
 
       return true;
     });
-  }, [videos, filters, search]);
+  }, [videos, filters, deferredQuery]);
 
   return { filteredVideos, applyFilters, handleSearchChange };
 };
-
-export default useFilters;

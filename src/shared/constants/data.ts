@@ -9,8 +9,7 @@ export const mockVideo: IVideo[] = [
     uploadedDate: "2023-10-12",
     lastUpdated: "2023-10-15",
     uploadedBy: "lady@bug.com",
-    thumbnailUrl:
-      "https://img.freepik.com/free-vector/internet-communication_24877-51945.jpg?semt=ais_hybrid",
+    thumbnailUrl: "",
     isProcessing: false,
     tags: ["marine", "biology", "ocean"],
   },
@@ -24,8 +23,7 @@ export const mockVideo: IVideo[] = [
     uploadedBy: "lady@bug.com",
     isProcessing: true,
     tags: ["space", "exploration", "2024"],
-    thumbnailUrl:
-      "https://marketing4ecommerce.net/en/wp-content/uploads/sites/8/2024/04/internet.jpg",
+    thumbnailUrl: "",
   },
   {
     id: "3",
