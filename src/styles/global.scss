@@ -1,0 +1,25 @@
+body {
+  font-family: "SFProText", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "SFProText", sans-serif;
+}
+
+p {
+  font-family: "SFProText", sans-serif;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #580b82;
+  border-color: #580b82;
+}
+
+.ant-card-body {
+  display: flex;
+}
