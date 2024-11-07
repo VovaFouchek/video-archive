@@ -21,5 +21,5 @@ export default defineConfig({
       },
     },
   },
-  base: "/video-archive",
+  base: "/",
 });
