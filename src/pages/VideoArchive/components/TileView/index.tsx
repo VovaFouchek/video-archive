@@ -3,6 +3,7 @@ import Checkbox from "antd/es/checkbox";
 import Button from "antd/es/button";
 
 import { IVideo } from "@/shared/types";
+import fallbackImage from "/public/images/videoCamera.svg";
 
 import "./tileView.scss";
 
@@ -13,7 +14,7 @@ interface TileViewProps {
   onEdit?: (id: string) => void;
 }
 
-const fallbackImage = "/src/assets/videoCamera.svg";
+// const fallbackImage = "/src/assets/videoCamera.svg";
 
 const TileView = ({
   videos,

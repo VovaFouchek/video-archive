@@ -8,6 +8,7 @@ import {
 
 import ROUTERS from "@/shared/constants/routers";
 import ProfileCard from "../ProfileCard";
+import avatar from "/public/images/Avatar.jpg";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -63,7 +64,7 @@ const Sidebar = () => {
       <ProfileCard
         name="Lady Bug"
         email="lady@bug.com"
-        avatarUrl="/src/assets/Avatar.jpg"
+        avatarUrl={avatar}
         handleLogOut={() => console.log("Log out")}
       />
     </>

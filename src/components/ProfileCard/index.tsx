@@ -4,6 +4,7 @@ import Card from "antd/es/card";
 import Typography from "antd/es/typography";
 
 import { LoginOutlined } from "@ant-design/icons";
+import profileDefaultImage from "/public/images/profileDefault.svg";
 
 const { Text, Title } = Typography;
 
@@ -13,8 +14,6 @@ interface ProfileCardProps {
   avatarUrl: string;
   handleLogOut: () => void;
 }
-
-const profileDefaultImage = "/src/assets/profileDefault.svg";
 
 const ProfileCard = ({
   name,
